@@ -676,6 +676,11 @@ FACILITY_CDN = env("FACILITY_CDN", default=None)
 CURRENT_DOMAIN = env("CURRENT_DOMAIN", default="localhost:4000")
 BACKEND_DOMAIN = env("BACKEND_DOMAIN", default="localhost:9000")
 
+# Keycloak bridge configuration
+KEYCLOAK_ISSUER = env("KEYCLOAK_ISSUER", default="")
+KEYCLOAK_AUDIENCE = env("KEYCLOAK_AUDIENCE", default="")
+KEYCLOAK_JWKS_URL = env("KEYCLOAK_JWKS_URL", default="")
+
 APP_VERSION = env("APP_VERSION", default="unknown")
 
 IS_PRODUCTION = False

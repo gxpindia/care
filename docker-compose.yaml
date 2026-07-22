@@ -13,7 +13,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - ${BACKUP_DIR:-./care-backups}:/backups
     ports:
-      - "5433:5432"
+      - "5435:5432"
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER:-postgres}"]
       interval: 10s

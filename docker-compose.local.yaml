@@ -1,3 +1,7 @@
+networks:
+  default:
+    name: care
+
 services:
   backend:
     image: care_local
@@ -10,9 +14,10 @@ services:
       - ./docker/.local.env
     volumes:
       - .:/app
+      - ./docker/secrets/sync-bot-password.txt:/run/secrets/sync-bot-password.txt:ro
     entrypoint: ["bash", "scripts/start-dev.sh"]
     ports:
-      - "9000:9000"
+      - "9100:9000"
       - "9876:9876" #debugpy
     restart: unless-stopped
     depends_on:

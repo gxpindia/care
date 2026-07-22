@@ -9,6 +9,7 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
+from care.users.api.viewsets.keycloak_auth import KeycloakTokenExchangeView
 
 from care.users.api.viewsets.change_password import ChangePasswordView
 from care.users.reset_password_views import (
@@ -64,6 +65,9 @@ urlpatterns = [
     ),
     path("api/v1/", include(api_router.urlpatterns)),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+    
+    path("api/v1/auth/keycloak/", KeycloakTokenExchangeView.as_view(), name="keycloak-token-exchange"),
+
 ]
 
 if settings.DEBUG:
