@@ -131,3 +131,12 @@ JWKS = JsonWebKey.import_key_set(
         base64.b64decode(env("JWKS_BASE64", default=get_jwks_from_file(BASE_DIR)))  # noqa F405
     )
 )
+
+print("=======================================================", flush=True)
+print("[CARE ENV AUDIT] CARE Django EMR Backend Initializing...", flush=True)
+print(f"[CARE ENV AUDIT] DATABASE_URL: {env('DATABASE_URL', default='not set')[:30]}...", flush=True)
+print(f"[CARE ENV AUDIT] KEYCLOAK_ISSUER: {env('KEYCLOAK_ISSUER', default='not set')}", flush=True)
+print(f"[CARE ENV AUDIT] KEYCLOAK_AUDIENCE: {env('KEYCLOAK_AUDIENCE', default='not set')}", flush=True)
+print(f"[CARE ENV AUDIT] KEYCLOAK_JWKS_URL: {env('KEYCLOAK_JWKS_URL', default='not set')}", flush=True)
+print(f"[CARE ENV AUDIT] DJANGO_SECRET_KEY: {'Present [OK]' if env('DJANGO_SECRET_KEY', default='') else 'Missing (using default fallback)'}", flush=True)
+print("=======================================================", flush=True)
